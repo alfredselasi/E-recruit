@@ -1,0 +1,147 @@
+
+{% extends 'main.html' %}
+
+{% block content%}
+<style>
+    /****Change navbar in login page*****/
+    .navbar-text .nav-item .nav-link{
+        color: black !important;
+    }
+
+    .navbar-brand{
+        color: black !important;
+    }
+</style>
+<section class="page-section" id="contact">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8 col-xl-6 text-center">
+                <h2 class="mt-0">Register Recruiter</h2>
+                <hr class="divider" />
+                <p class="text-muted mb-5">Fill Form below to Register</p>
+            </div>
+        </div>
+        <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+            <div class="col-lg-6">
+               
+                <form  method="POST" class="mb-5">
+                   {% csrf_token %}
+                    
+                    <!-- First name-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" name="first_name" type="text" placeholder="Enter First Name" data-sb-validations="required,first_name" />
+                        <label for="first_name">First Name</label>
+                        <div class="invalid-feedback" data-sb-feedback="email:required">First Name is required.</div>
+                        <div class="invalid-feedback" data-sb-feedback="email:email">First Name is not valid.</div>
+                    </div>
+
+                    <!-- last name-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" name="last_name" type="text" placeholder="Enter Last Name" data-sb-validations="required,last_name" />
+                        <label for="last_name">Last Name</label>
+                        <div class="invalid-feedback" data-sb-feedback="email:required">Last Name is required.</div>
+                        <div class="invalid-feedback" data-sb-feedback="email:email">Last Name is not valid.</div>
+                    </div>
+
+
+                     <!-- user name-->
+                     <div class="form-floating mb-3">
+                        <input class="form-control" name="user_name" type="text" placeholder="Enter user Name" data-sb-validations="required,user_name" />
+                        <label >User Name </label>
+                        <div class="invalid-feedback" data-sb-feedback="email:required">User Name is required.</div>
+                        <div class="invalid-feedback" data-sb-feedback="email:email">User Name is not valid.</div>
+                    </div>
+                    
+                    
+                    <!-- Email-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" name="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
+                        <label for="email">Email </label>
+                        <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                        <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                    </div>
+                    <!-- Password-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" name="password" type="password" placeholder="***********" data-sb-validations="required" />
+                        <label for="password">Password</label>
+                        <div class="invalid-feedback" data-sb-feedback="phone:required">Password is required.</div>
+                    </div>
+
+
+                     
+
+                     <!-- Company Name-->
+                     <div class="form-floating mb-3 " id="companyName_container">
+                        <input class="form-control " name="company_name" type="text" placeholder="Enter Company Name" data-sb-validations="required" />
+                        <label for="companyName">Company Name</label>
+                        <div class="invalid-feedback" data-sb-feedback="phone:required">Company Name is required.</div>
+                    </div>
+
+
+                    
+
+
+                    <!-- phone number-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" name="phone_number" type="number" placeholder="Enter Phone Number" data-sb-validations="required,phoneNumber" />
+                        <label for="phoneNumber">Phone Number</label>
+                        <div class="invalid-feedback" data-sb-feedback="email:required">A phone number is required.</div>
+                        <div class="invalid-feedback" data-sb-feedback="email:email">phone number is not valid.</div>
+                    </div>
+
+
+                   
+
+                    
+
+
+
+
+
+
+
+                   
+                    <!-- Submit success message-->
+                    <!---->
+                    <!-- This is what your users will see when the form-->
+                    <!-- has successfully submitted-->
+                    <div class="d-none" id="submitSuccessMessage">
+                        <div class="text-center mb-3">
+                            <div class="fw-bolder">Form submission successful!</div>
+                           
+                        </div>
+                    </div>
+                    <!-- Submit error message-->
+                    <!---->
+                    <!-- This is what your users will see when there is-->
+                    <!-- an error submitting the form-->
+                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                    <!-- Submit Button-->
+                    <div class="d-grid"><button class="btn btn-primary btn-xl" type="submit">Register</button></div>
+                </form>
+
+               
+            </div>
+        </div>
+        
+    </div>
+    
+</section>
+
+
+<script>
+    $(document).ready(function(){
+        /**************GLOBAL***********/
+       
+        
+
+    })
+</script>
+
+
+{% endblock content%}
+
+
+
+
+ 

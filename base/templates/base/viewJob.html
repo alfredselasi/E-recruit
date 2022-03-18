@@ -1,0 +1,129 @@
+
+{% extends 'main.html' %}
+
+{% block content%}
+<style>
+    /****Change navbar in login page*****/
+    .navbar-text .nav-item .nav-link{
+        color: black !important;
+    }
+
+    .navbar-brand{
+        color: black !important;
+    }
+</style>
+
+<section class="page-section" id="contact">
+  <div class="container px-4 px-lg-5">
+      <div class="row gx-4 gx-lg-5 justify-content-center">
+          <div class="col-lg-8 col-xl-6 text-center">
+              <h2 class="mt-0">View Job</h2>
+              <hr class="divider" />
+             
+          </div>
+      </div>
+      <div class="row  gx-4 gx-lg-5 justify-content-center mb-5">
+          <div class="col-lg-12">
+             
+            <section>
+              
+              <form class="mt-3">
+                  <div class="form-group row">
+                    <label for="name" class="col-sm-2 col-form-label">Job Name</label>
+                    <div class="col-sm-10">
+                      <input type="text" readonly class="form-control-plaintext"  value="{{job.title}}">
+                    </div>
+                  </div>
+                  
+                  <div class="form-group row">
+                      <label for="name" class="col-sm-2 col-form-label">Company Name</label>
+                      <div class="col-sm-10">
+                        <input type="text" readonly class="form-control-plaintext" id="companyName" value="{{job.recruiter.company_name}}">
+                      </div>
+                    </div>
+                  <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Job Category</label>
+                    <div class="col-sm-10">
+                      <input type="text" readonly class="form-control-plaintext" id="email" value=" {{job.cat}}">
+          
+                    </div>
+                  </div>
+          
+                  <div class="form-group row">
+                      <label for="inputPassword" class="col-sm-2 col-form-label">Job Description</label>
+                      <div class="col-sm-10">
+                        <input type="text" readonly class="form-control-plaintext"  value="{{job.description}}">
+                        
+                      </div>
+                    </div>
+          
+                    <div class="form-group row">
+                      <label for="inputPassword" class="col-sm-2 col-form-label">Country</label>
+                      <div class="col-sm-10">
+                        <input type="text" readonly class="form-control-plaintext" id="phoneNumber" value="{{job.country}}">
+                        
+                      </div>
+                    </div>
+          
+                    <div class="form-group row">
+                      <label for="inputPassword" class="col-sm-2 col-form-label">Years of Experience</label>
+                      <div class="col-sm-10">
+                        <input type="text" readonly class="form-control-plaintext" id="phoneNumber" value="{{job.year_of_experience}}">
+                        
+                      </div>
+                    </div>
+          
+                    <div class="form-group row">
+                      <label for="inputPassword" class="col-sm-2 col-form-label">Education Level</label>
+                      <div class="col-sm-10">
+                        <input type="text" readonly class="form-control-plaintext" id="phoneNumber" value="{{job.education_level}}">
+                        
+                      </div>
+                    </div>
+          
+          
+                    <div class="form-group row">
+                      <label for="inputPassword" class="col-sm-2 col-form-label">Degree</label>
+                      <div class="col-sm-10">
+                        <input type="text" readonly class="form-control-plaintext" id="phoneNumber" value="{{job.degree}}">
+                        
+                      </div>
+                    </div>
+          
+          
+                    <div class="form-group row">
+                      <label for="inputPassword" class="col-sm-2 col-form-label">Skill Level</label>
+                      <div class="col-sm-10">
+                        <input type="text" readonly class="form-control-plaintext" id="phoneNumber" value="{{job.skill_level}}">
+                        
+                      </div>
+                    </div>
+          
+          
+                </form>
+          
+          </section>
+
+
+                <!--Logout button-->
+                <form action="{% url 'logout' %}" method="POST" class="mt-5">
+                  {% csrf_token %}
+                  <div class="d-grid"><button class="btn btn-primary btn-xl" type="submit">Logout</button></div>
+
+                  
+                </form>
+                
+
+          </div>
+      </div>
+      
+  </div>
+  <!-- Modal -->
+  
+</section>
+
+
+
+{% endblock content%}
+
+ 

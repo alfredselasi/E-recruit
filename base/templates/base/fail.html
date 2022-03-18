@@ -1,0 +1,284 @@
+{% extends 'main.html' %}
+
+{% block content%}
+<style>
+ @import url('https://fonts.googleapis.com/css2?family=Khand:wght@500&display=swap');
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+section  { 
+  height: 100vh;
+  display: flex;
+  font-size: 14px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Khand', sans-serif;   
+}        
+
+.wrapperAlert {
+  width: 500px;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 12px;
+  border: thin solid #ddd;           
+}
+
+.topHalf {
+  width: 100%;
+  color: white;
+  overflow: hidden;
+  min-height: 250px;
+  position: relative;
+  padding: 40px 0;
+  background: rgb(0,0,0);
+  background: -webkit-linear-gradient(45deg, #ff5252, #ffbaba);
+}
+
+.topHalf p {
+  margin-bottom: 30px;
+}
+svg {
+  fill: white;
+}
+.topHalf h1 {
+  font-size: 2.25rem;
+  display: block;
+  font-weight: 500;
+  letter-spacing: 0.15rem;
+  text-shadow: 0 2px rgba(128, 128, 128, 0.6);
+}
+        
+/* Original Author of Bubbles Animation -- https://codepen.io/Lewitje/pen/BNNJjo */
+.bg-bubbles{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;            
+  z-index: 1;
+}
+
+li{
+  position: absolute;
+  list-style: none;
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.15);/* fade(green, 75%);*/
+  bottom: -160px;
+
+  -webkit-animation: square 20s infinite;
+  animation:         square 20s infinite;
+
+  -webkit-transition-timing-function: linear;
+  transition-timing-function: linear;
+}
+li:nth-child(1){
+  left: 10%;
+}		
+li:nth-child(2){
+  left: 20%;
+
+  width: 80px;
+  height: 80px;
+
+  animation-delay: 2s;
+  animation-duration: 17s;
+}		
+li:nth-child(3){
+  left: 25%;
+  animation-delay: 4s;
+}		
+li:nth-child(4){
+  left: 40%;
+  width: 60px;
+  height: 60px;
+
+  animation-duration: 22s;
+
+  background-color: rgba(white, 0.3); /* fade(white, 25%); */
+}		
+li:nth-child(5){
+  left: 70%;
+}		
+li:nth-child(6){
+  left: 80%;
+  width: 120px;
+  height: 120px;
+
+  animation-delay: 3s;
+  background-color: rgba(white, 0.2); /* fade(white, 20%); */
+}		
+li:nth-child(7){
+  left: 32%;
+  width: 160px;
+  height: 160px;
+
+  animation-delay: 7s;
+}		
+li:nth-child(8){
+  left: 55%;
+  width: 20px;
+  height: 20px;
+
+  animation-delay: 15s;
+  animation-duration: 40s;
+}		
+li:nth-child(9){
+  left: 25%;
+  width: 10px;
+  height: 10px;
+
+  animation-delay: 2s;
+  animation-duration: 40s;
+  background-color: rgba(white, 0.3); /*fade(white, 30%);*/
+}		
+li:nth-child(10){
+  left: 90%;
+  width: 160px;
+  height: 160px;
+
+  animation-delay: 11s;
+}
+
+@-webkit-keyframes square {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-500px) rotate(600deg); }
+}
+@keyframes square {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-500px) rotate(600deg); }
+}
+
+.bottomHalf {
+  align-items: center;
+  padding: 35px;
+}
+.bottomHalf p {
+  font-weight: 500;
+  font-size: 1.05rem;
+  margin-bottom: 20px;
+}
+
+button {
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 12px;            
+  padding: 10px 18px;            
+  background-color: #019871;
+  text-shadow: 0 1px rgba(128, 128, 128, 0.75);
+}
+button:hover {
+  background-color: #85ddbf;
+}
+  
+</style>
+<section>
+
+    <div class="wrapperAlert " >
+
+        <div class="contentAlert">
+      
+          <div class="topHalf">
+      
+            <p><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 640 640">
+              <metadata><?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
+            <x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.6-c142 79.160924, 2017/07/13-01:06:39        ">
+               <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+                  <rdf:Description rdf:about=""/>
+               </rdf:RDF>
+            </x:xmpmeta>
+                                                                                                                
+                                                                                                                
+                                                                                                                
+                                                                                                                
+                                                                                                                
+                                                                                                                
+                                                                                                                
+                                                                                                                
+                                                                                                                
+                                                                                                                
+                                                                                                                
+                                                                                                                
+                                                                                                                
+                                                                                                                
+                                                                                                                
+                                                                                                                
+                                                                                                                
+                                                                                                                
+                                                                                                                
+                                                                                                                
+                                       
+            <?xpacket end="w"?></metadata>
+            <defs>
+                <style>
+                  .cls-1 {
+                    fill: #226122;
+                    filter: url(#filter);
+                  }
+            
+                  .cls-2, .cls-4 {
+                    fill: #fff;
+                  }
+            
+                  .cls-3 {
+                    fill: #0ec00e;
+                    filter: url(#filter-2);
+                  }
+            
+                  .cls-4 {
+                    fill-rule: evenodd;
+                  }
+                </style>
+                <filter id="filter" x="6" y="6" width="628" height="628" filterUnits="userSpaceOnUse">
+                  <feFlood result="flood" flood-color="#b43a3a"/>
+                  <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+                  <feBlend result="blend" in2="SourceGraphic"/>
+                </filter>
+                <filter id="filter-2" x="35" y="39" width="562" height="562" filterUnits="userSpaceOnUse">
+                  <feFlood result="flood" flood-color="#f55"/>
+                  <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+                  <feBlend result="blend" in2="SourceGraphic"/>
+                </filter>
+              </defs>
+              <circle class="cls-1" cx="320" cy="320" r="314"/>
+              <circle id="Ellipse_1_Kopie" data-name="Ellipse 1 Kopie" class="cls-2" cx="317" cy="320" r="290"/>
+              <circle id="Ellipse_1_Kopie_2" data-name="Ellipse 1 Kopie 2" class="cls-3" cx="316" cy="320" r="281"/>
+              <path id="Rechteck_1" data-name="Rechteck 1" class="cls-4" d="M397.875,191.993l50.132,50.132-205.3,205.3L192.573,397.3Z"/>
+              <path id="Rechteck_1_Kopie" data-name="Rechteck 1 Kopie" class="cls-4" d="M447.743,397.813l-50.194,50.194L191.993,242.451l50.194-50.194Z"/>
+            </svg>  </p>
+            <h1>Failed</h1>
+      
+           <ul class="bg-bubbles">
+             <li></li>
+             <li></li>
+             <li></li>
+             <li></li>
+             <li></li>
+             <li></li>
+             <li></li>
+             <li></li>
+             <li></li>
+             <li></li>
+           </ul>
+          </div>
+      
+          <div class="bottomHalf "  >
+      
+            <p>Sorry!. You do not meet rquirements for this job</p>
+      
+            <a href="/candidate/home" class="btn btn-sm btn-primary"  >Go back Home</a>
+      
+          </div>
+      
+        </div>        
+      
+      </div>
+
+</section>
+
+{% endblock content%}

@@ -1,0 +1,124 @@
+
+{% extends 'main.html' %}
+
+{% block content%}
+<style>
+    /****Change navbar in login page*****/
+    .navbar-text .nav-item .nav-link{
+        color: black !important;
+    }
+
+    .navbar-brand{
+        color: black !important;
+    }
+</style>
+
+<section class="page-section" id="contact">
+  <div class="container px-4 px-lg-5">
+      <div class="row gx-4 gx-lg-5 justify-content-center">
+          <div class="col-lg-8 col-xl-6 text-center">
+              <h2 class="mt-0">Apply to Job</h2>
+              <hr class="divider" />
+             
+          </div>
+      </div>
+      <div class="row  gx-4 gx-lg-5 justify-content-center mb-5">
+          <div class="col-lg-12">
+             
+            <section>
+              
+                <form   method="POST" class="p-3">
+                    {% csrf_token %}
+                     
+                      <div class="form-group mb-3">
+                          <label for="exampleFormControlTextarea1">Years of Experience</label>
+                          <select class="form-control custom-select" name="exp">
+                            <option value="None" selected>Choose...</option>
+                            <option value="No Experience">No Experience</option>
+                            <option value="1-2 years">1-2 years</option>
+                            <option value="2-5 years">2-5 years</option>
+                            <option value="5-10 years">5-10 years</option>
+                            <option value="Above 10 years">Above 10 years</option>
+                        </select>
+                        </div>
+
+
+                      <div class="form-group mb-3">
+                        <label for="exampleFormControlTextarea1">Country</label>
+                        <select class="form-control custom-select" name="country">
+                          <option value="Not Selected" selected>Choose...</option>
+                          <option value="Ghana">Ghana</option>
+                          <option value="Nigeria">Nigeria</option>
+                          <option value="Togo">Togo</option>
+                          <option value="Benin">Benin</option>
+                      </select>
+                      </div>
+
+
+                      <div class="form-group mb-3">
+                          <label for="exampleFormControlTextarea1">Education Level</label>
+                          <select class="form-control custom-select" name="education">
+                            <option value="None" selected>Choose...</option>
+                            <option value="No Education">No Education</option>
+                            <option value="Basic School">Basic School</option>
+                            <option value="Secondary School">Secondary School</option>
+                            <option value="Tertiary">Tertiary</option>
+                        </select>
+                        </div>
+
+                        <div class="form-group mb-3">
+                          <label for="exampleFormControlTextarea1">Degree</label>
+                          <select class="form-control custom-select" name="degree">
+                            <option value="None" selected>Choose...</option>
+                            <option value="No Degree">No Degree</option>
+                            <option value="Bachelor's">Bachelor's</option>
+                            <option value="Masters">Masters</option>
+                            <option value="PHD">PHD</option>
+                        </select>
+                        </div>
+
+
+                        <div class="form-group mb-4">
+                          <label for="exampleFormControlTextarea1">Skill Level </label>
+                          <select class="form-control custom-select" name="skill_level">
+                            <option value="None" selected>Choose...</option>
+                            <option value="Beginner">Beginner</option>
+                            <option value="Intermidate">Intermidate</option>
+                            <option value="Advanced">Advanced</option>
+                        </select>
+                        </div>
+
+
+                        <div >
+                            <button class="btn btn-primary" type="submit">Apply</button>
+                        </div>
+
+                      
+                    </form>
+              
+          
+            </section>
+
+
+                <!--Logout button-->
+                <form action="{% url 'logout' %}" method="POST" class="mt-5">
+                  {% csrf_token %}
+                  <div class="d-grid"><button class="btn btn-primary btn-xl" type="submit">Logout</button></div>
+
+                  
+                </form>
+                
+
+          </div>
+      </div>
+      
+  </div>
+  <!-- Modal -->
+  
+</section>
+
+
+
+{% endblock content%}
+
+ 

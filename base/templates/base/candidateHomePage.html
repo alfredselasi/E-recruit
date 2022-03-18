@@ -1,0 +1,230 @@
+
+
+{% extends 'main.html' %}
+
+{% block content%}
+<style>
+    /****Change navbar in login page*****/
+    .navbar-text .nav-item .nav-link{
+        color: black !important;
+    }
+
+    .navbar-brand{
+        color: black !important;
+    }
+
+    
+.card {
+  background: #fff;
+  border-radius: 2px;
+  display: inline-block;
+  height: 300px;
+  margin: 1rem;
+  position: relative;
+  width: 300px;
+}
+
+.card-1 {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.card-1:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.card-2 {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.card-3 {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.card-4 {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.card-5 {
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+</style>
+<section class="page-section" id="contact">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8 col-xl-6 text-center">
+                <h2 class="mt-0">Candidate Portal</h2>
+                <hr class="divider" />
+               
+            </div>
+        </div>
+        <div class="row  gx-4 gx-lg-5 justify-content-center mb-5">
+            <div class="col-lg-12">
+               
+                <div class="card card-3 w-100 mb-5" >
+                    <div class="card-body">
+                      <h5 class="card-title">User Details</h5>
+                      <form class="mt-3">
+                        <div class="form-group row">
+                          <label for="name" class="col-sm-2 col-form-label">Username</label>
+                          <div class="col-sm-10">
+                            <input type="text" readonly class="form-control-plaintext" id="name" value="{{candidate.user.username}}">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="name" class="col-sm-2 col-form-label">Name</label>
+                          <div class="col-sm-10">
+                            <input type="text" readonly class="form-control-plaintext" id="name" value="{{candidate.first_name}} {{candidate.last_name}}">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="inputPassword" class="col-sm-2 col-form-label">Email</label>
+                          <div class="col-sm-10">
+                            <input type="text" readonly class="form-control-plaintext" id="email" value="{{candidate.user.email}}">
+
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Account Type</label>
+                            <div class="col-sm-10">
+                              <input type="text" readonly class="form-control-plaintext"  value="Candidate">
+                              
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Phone Number</label>
+                            <div class="col-sm-10">
+                              <input type="text" readonly class="form-control-plaintext"  value="{{candidate.phone_number}}">
+                              
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Work History</label>
+                            <div class="col-sm-10">
+                              <input type="text" readonly class="form-control-plaintext"  value="{{candidate.work_history}}">
+                              
+                            </div>
+                          </div>
+                      </form>
+                    </div>
+                  </div>
+
+                   <!---Applications-->
+                   <!-- <section class="mb-5">
+                      
+                    <div class="card card-3 w-100 h-100">
+                        <div class="card-header">
+                            <header>Applications</header>
+                        </div>
+                        <table class="table table-striped">
+                            <thead class="thead-dark">
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Recruiter</th>
+                                <th scope="col">Company Name</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Date Applied</th>
+                                <th scope="col">Actions</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">1</th>
+                                <td>Mark Smith</td>
+                                <td>Barclays Bank</td>
+                                <td><span class="badge" style="background-color: Gold;">Pending</span></td>
+                                <td>12 Feb 2022</td>
+                                <td>
+                                    <div>
+                                        <span class="btn btn-sm btn-primary">View</span>
+                                    </div>
+                                   
+                                </td>
+                              </tr>
+                              
+                            </tbody>
+                          </table>
+                          
+                          
+
+                    </div>
+
+                  </section> -->
+
+                  <!---View Recruiters Jobs Section-->
+                  <section class="mb-5">
+                      
+                    <div class="card card-3 w-100 h-100">
+                        <div class="card-header">
+                            <header>Recruiter Jobs Available</header>
+                        </div>
+                        <table class="table table-striped">
+                            <thead class="thead-dark">
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Company Name</th>
+                                <th scope="col">Job Title</th>
+                                <th scope="col">Job Cat</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Date Posted</th>
+                                <th scope="col">Actions</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {% for job in jobs %}
+                              <tr>
+                                <th scope="row">{{job.id}}</th>
+                                <td>{{job.recruiter.company_name}}</td>
+                                <td>{{job.title}}</td>
+                                <td>{{job.cat}}</td>
+                                <td>
+                                  {% if job.is_open %}
+                                <span class="badge" style="background-color: green;">Open</span>
+                                {% else %}
+                                <span class="badge" style="background-color: red;">Closed</span>
+                                {% endif %}      
+                                </td>
+                                <td>{{job.date_created}}</td>
+                                <td>
+                                        <a href="/candidate/view/job/{{job.id}}"  class="btn btn-sm btn-primary">View</a>
+                                        <a href="/candidate/apply/job/{{job.id}}" class="btn btn-sm btn-primary">Apply</a>
+                                    
+                                   
+                                </td>
+                              </tr>
+
+                              {% endfor %}
+                              
+                            </tbody>
+                          </table>
+                          
+                          
+
+                    </div>
+
+                  </section>
+
+
+                    <!--Logout button-->
+                    <form action="{% url 'logout' %}" method="POST">
+                      {% csrf_token %}
+                      <div class="d-grid"><button class="btn btn-primary btn-xl" type="submit">Logout</button></div>
+  
+                      
+                    </form>
+
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+{% endblock content%}
+
+ 
+
+
+

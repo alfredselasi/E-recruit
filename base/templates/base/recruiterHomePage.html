@@ -1,0 +1,363 @@
+
+
+{% extends 'main.html' %}
+
+{% block content%}
+<style>
+    /****Change navbar in login page*****/
+    .navbar-text .nav-item .nav-link{
+        color: black !important;
+    }
+
+    .navbar-brand{
+        color: black !important;
+    }
+
+    
+.card {
+  background: #fff;
+  border-radius: 2px;
+  display: inline-block;
+  height: 300px;
+  margin: 1rem;
+  position: relative;
+  width: 300px;
+}
+
+.card-1 {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.card-1:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.card-2 {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.card-3 {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.card-4 {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.card-5 {
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+
+
+dialog {
+  width: 90%;
+  height: 80%;
+  max-width: 700px;
+  border: .5px solid lightgrey;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 0.5em;
+  position: relative;
+  scrollbar-width: thin;
+}
+
+dialog::backdrop {
+  background: black;
+  opacity: .25;
+}
+
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  font-size: 3rem;
+  position: fixed;
+  width: 90%;
+  max-width: 700px;
+  background-color: white; 
+  margin-top: -16px;
+  padding-top: 20px;
+}
+
+
+
+
+
+i {
+  cursor: pointer;
+}
+
+i:hover {
+  background-color: lightgrey;
+  border-radius: 2px;
+}
+</style>
+<section class="page-section" id="contact">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8 col-xl-6 text-center">
+                <h2 class="mt-0">Recruiter Portal</h2>
+                <hr class="divider" />
+               
+            </div>
+        </div>
+        <div class="row  gx-4 gx-lg-5 justify-content-center mb-5">
+            <div class="col-lg-12">
+               
+                <div class="card card-3 w-100 mb-5" >
+                    <div class="card-body">
+                      <h5 class="card-title">User Details</h5>
+                      <form class="mt-3">
+                        <div class="form-group row">
+                          <label for="name" class="col-sm-2 col-form-label">Username</label>
+                          <div class="col-sm-10">
+                            <input type="text" readonly class="form-control-plaintext"  value="{{user_obj.username}}">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="name" class="col-sm-2 col-form-label">Name</label>
+                          <div class="col-sm-10">
+                            <input type="text" readonly class="form-control-plaintext"  value="{{recruiter_obj.first_name}} {{recruiter_obj.last_name}}">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="name" class="col-sm-2 col-form-label">Company Name</label>
+                            <div class="col-sm-10">
+                              <input type="text" readonly class="form-control-plaintext" id="companyName" value="{{recruiter_obj.company_name}}">
+                            </div>
+                          </div>
+                        <div class="form-group row">
+                          <label for="inputPassword" class="col-sm-2 col-form-label">Email</label>
+                          <div class="col-sm-10">
+                            <input type="text" readonly class="form-control-plaintext" id="email" value=" {{recruiter_obj.email}}">
+
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Account Type</label>
+                            <div class="col-sm-10">
+                              <input type="text" readonly class="form-control-plaintext" id="accountType" value="Candidate">
+                              
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Phone Number</label>
+                            <div class="col-sm-10">
+                              <input type="text" readonly class="form-control-plaintext" id="phoneNumber" value="{{recruiter_obj.phone_number}}">
+                              
+                            </div>
+                          </div>
+                      </form>
+                    </div>
+                  </div>
+
+                   <!---Add Job-->
+                   <section class="mb-5">
+                      
+                    <div class="card card-3 w-100 h-100">
+                        <div class="card-header">
+                            <header>Post Job</header>
+                        </div>
+                        <form  action="{% url 'postJob' %}" method="POST" class="p-3">
+                          {% csrf_token %}
+                            <div class="form-group mb-3">
+                                <label for="exampleFormControlInput1">Choose Job Category</label>
+                                <select class="form-control custom-select" name="job_cat">
+                                    <option value="none" selected>Choose...</option>
+                                    <option value="IT">IT</option>
+                                    <option value="Health Care">Health Care</option>
+                                    <option value="Engineering">Engineering</option>
+                                    <option value="Administration">Administration</option>
+                                    <option value="Construction and Building">Construction and Building</option>
+                                    <option value="Design, Arts and Craft">Design, Arts and Craft</option>
+                                    <option value="Education and Training">Education and Training</option>
+                                    <option value="Financial Services">Financial Services</option>
+                                </select>
+                            </div>
+                            <div class="form-group mb-3">
+                              <label for="exampleFormControlSelect1">Job Title</label>
+                              <input type="text" class="form-control" name="job_title" >
+                            </div>
+                            <div class="form-group mb-3">
+                              <label for="exampleFormControlSelect2">Description</label>
+                              <textarea class="form-control" name="desc" rows="3"></textarea>
+                            </div>
+
+                            <div class="form-group mb-3">
+                              <label for="exampleFormControlSelect1">Maximum Number of Applicants</label>
+                              <input type="text" class="form-control" name="max_applicants" >
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="exampleFormControlTextarea1">Years of Experience</label>
+                                <select class="form-control custom-select" name="exp">
+                                  <option value="None" selected>Choose...</option>
+                                  <option value="No Experience">No Experience</option>
+                                  <option value="1-2 years">1-2 years</option>
+                                  <option value="2-5 years">2-5 years</option>
+                                  <option value="5-10 years">5-10 years</option>
+                                  <option value="Above 10 years">Above 10 years</option>
+                              </select>
+                              </div>
+
+
+                            <div class="form-group mb-3">
+                              <label for="exampleFormControlTextarea1">Country</label>
+                              <select class="form-control custom-select" name="country">
+                                <option value="Not Selected" selected>Choose...</option>
+                                <option value="Ghana">Ghana</option>
+                                <option value="Nigeria">Nigeria</option>
+                                <option value="Togo">Togo</option>
+                                <option value="Benin">Benin</option>
+                            </select>
+                            </div>
+
+
+                            <div class="form-group mb-3">
+                                <label for="exampleFormControlTextarea1">Education Level</label>
+                                <select class="form-control custom-select" name="education">
+                                  <option value="None" selected>Choose...</option>
+                                  <option value="No Education">No Education</option>
+                                  <option value="Basic School">Basic School</option>
+                                  <option value="Secondary School">Secondary School</option>
+                                  <option value="Tertiary">Tertiary</option>
+                              </select>
+                              </div>
+
+                              <div class="form-group mb-3">
+                                <label for="exampleFormControlTextarea1">Degree</label>
+                                <select class="form-control custom-select" name="degree">
+                                  <option value="None" selected>Choose...</option>
+                                  <option value="No Degree">No Degree</option>
+                                  <option value="Bachelor's">Bachelor's</option>
+                                  <option value="Masters">Masters</option>
+                                  <option value="PHD">PHD</option>
+                              </select>
+                              </div>
+
+
+                              <div class="form-group mb-4">
+                                <label for="exampleFormControlTextarea1">Skill Level </label>
+                                <select class="form-control custom-select" name="skill_level">
+                                  <option value="None" selected>Choose...</option>
+                                  <option value="Beginner">Beginner</option>
+                                  <option value="Intermidate">Intermidate</option>
+                                  <option value="Advanced">Advanced</option>
+                              </select>
+                              </div>
+
+
+                              <div >
+                                  <button class="btn btn-primary" type="submit">Submit</button>
+                              </div>
+
+                            
+                          </form>
+                          
+
+                    </div>
+
+                  </section>
+
+                  <!---View Recruiters Section-->
+                  <section class="mb-5 ">
+                      
+                    <div class="card card-3 w-100 h-100 p-2">
+                        <div class="card-header">
+                            <header>Recruiters</header>
+                        </div>
+                        <table class="table table-striped">
+                            <thead class="thead-dark">
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Job Name</th>
+                                <th scope="col">Job Category</th>
+                                <th scope="col">Country</th>
+                                <th scope="col">No Applicants</th>
+                                <th scope="col">Selected Applicants</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Date Posted</th>
+                                <th scope="col">Actions</th>
+
+                              </tr>
+                            </thead>
+                            <tbody>
+                             {% for job in jobs %}
+                             <tr>
+                              <th scope="row">{{job.id}}</th>
+                              <td>{{job.title}}</td>
+                              <td>{{job.cat}}</td>
+                              <td>{{job.country}}</td>
+                              <td>{{job.number_of_applicants}}</td>
+                              <td>{{job.selected_applicants}}</td>
+                              <td>
+                                {% if job.is_open %}
+                                <span class="badge" style="background-color: green;">Open</span>
+                                {% else %}
+                                <span class="badge" style="background-color: red;">Closed</span>
+                                {% endif %}                              </td>
+                              <td>{{job.date_modified}}</td>
+                              <td>
+                                  
+                                      <a href="/recruiter/view/job/{{job.id}}" class="btn btn-sm btn-primary" >View</a>
+                                      
+                                      
+                                  
+                                 
+                              </td>
+                            </tr>
+                             {% endfor %}
+                              
+                            </tbody>
+                          </table>
+                          
+                          
+
+                    </div>
+
+                  </section>
+
+
+                  <!--Logout button-->
+                  <form action="{% url 'logout' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="d-grid"><button class="btn btn-primary btn-xl" type="submit">Logout</button></div>
+
+                    
+                  </form>
+                  
+
+            </div>
+        </div>
+        
+    </div>
+    <!-- Modal -->
+    
+</section>
+
+
+
+
+<script>
+ const modal= document.querySelector('.modal');
+const openModal= document.querySelector('.open-button');
+const closeModal= document.querySelector('.close-button');
+
+openModal.addEventListener('click', () => {
+  modal.showModal();
+});
+
+closeModal.addEventListener('click', () => {
+  modal.close();
+});
+</script>
+
+{% endblock content%}
+
+ 
+
+
+
