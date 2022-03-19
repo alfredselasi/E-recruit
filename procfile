@@ -1,1 +1,1 @@
-web: gunicorn erecruit.wsgi --log-file -
+web: gunicorn --pythonpath ghiblimovs erecruit.wsgi --log-file -
